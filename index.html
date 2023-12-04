@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCC202 - Atividade 12: Rômulo Amaral</title>
+    <script src="main.js" type="module"></script>
+    <style>
+        input:invalid{
+            border: 1px solid red;
+            color:red
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>DCC202 - Atividade 12: Rômulo Amaral</h1>
+        <p>Esta é a página principal que usa JavaScript para adicionar iteração.</p>
+    <section>
+        <form name= "entrada">
+            <input type = "number"  name="quantidade" value="5" min="0" max="12">
+            <fieldset>
+                <legend>Origem</legend>
+            <label for="">
+                <input type="radio" name="origem" value="maria" checked/>Maria</label>
+            </label>
+            <input type="radio" name="origem" value="joao" checked/>Joao</label>
+            </label>
+        </fieldset>
+            <input type="radio" name="origem" value="joao">
+            <select name="fruta" >
+                <option value="maca">Maçã</option>
+                <option value="pera">Pera</option>
+                <option value="banana">Banana</option>
+            </select>
+            <button type="submit" name="enviar">Enviar</button>
+        </form>
+    </section>
+    <section id="saida">
+
+    </section>
+    </main>
+</body>
+</html>
