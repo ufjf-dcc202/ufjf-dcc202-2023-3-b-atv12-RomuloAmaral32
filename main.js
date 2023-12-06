@@ -1,8 +1,8 @@
-import { getEstoque } from "./estoque.js";
+import { getEstoque, transacao } from "./estoque.js";
 
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
-document.entrada.enviar.addEventListener('submit' , leformulario)
+document.entrada.addEventListener('submit' , leformulario)
 
 atualizaTela();
 
@@ -13,15 +13,21 @@ const fruta= document.entrada.fruta.value;
 const origem = document.entrada.origem.value;
 const destino = document.entrada.destino.value;
 console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
+transacao(origem, destino, fruta, quantidade);
+atualizaTela();
 //document.entrada.submit();
 }
 function atualizaTela(){
     const estoque = getEstoque();
-olJoao.innerHTML="";
-for( let i=0; i<estoque.joao.length;i++){
-    const monte= estoque.joao[i];
+    preencheLista(olJoao, estoque.joao);
+    preencheLista(olMaria, estoque.maria);
+}
+function preencheLista(lista, estoqueDaPessoa){
+lista.innerHTML="";
+for( let i=0; i<estoqueDaPessoa.length;i++){
+    const monte= estoqueDaPessoa[i];
    const li = document.createElement('li');
    li.textContent = `${monte.tipo}: ${monte.qtd}`;
-   olJoao.append(li);
+   lista.append(li);
 }
 }
