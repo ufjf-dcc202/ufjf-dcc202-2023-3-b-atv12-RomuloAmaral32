@@ -1,10 +1,10 @@
-import { getEstoque } from "./estoque";
+import { getEstoque } from "./estoque.js";
 
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
 document.entrada.enviar.addEventListener('submit' , leformulario)
 
-atualizatTela();
+atualizaTela();
 
 function leformulario(event){
 event.preventDefault()
@@ -15,7 +15,7 @@ const destino = document.entrada.destino.value;
 console.log(`${origem} doa ${quantidade} ${fruta} para ${destino}`);
 //document.entrada.submit();
 }
-function atalizaTela(){
+function atualizaTela(){
     const estoque = getEstoque();
 olJoao.innerHTML="";
 for( let i=0; i<estoque.joao.length;i++){
