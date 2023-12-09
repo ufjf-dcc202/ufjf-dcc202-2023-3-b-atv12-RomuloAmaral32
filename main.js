@@ -39,7 +39,7 @@ function atualizaTela(){
 }
 
 function preencheLista(lista, estoqueDaPessoa) {
-    lista.innerHTML = "";
+    lista.textContent = "";
     if (Array.isArray(estoqueDaPessoa)) {
         for (let i = 0; i < estoqueDaPessoa.length; i++) {
             const monte = estoqueDaPessoa[i];
