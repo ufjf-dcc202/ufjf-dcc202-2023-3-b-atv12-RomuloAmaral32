@@ -4,8 +4,15 @@ const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
 
 document.entrada.addEventListener('submit', leFormulario);
-atualizaTela();
+document.entrada.reset();
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('buttonLimparLista').addEventListener('click', () => {
+        limpaEstoque();
+        atualizaTela();
+    });
+});
+atualizaTela();
 function leFormulario(event) {
 
     event.preventDefault();
