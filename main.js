@@ -1,6 +1,8 @@
 import { getEstoque, transacaoNoEstoque, limpaEstoque } from "./estoque.js";
+
 const olJoao = document.querySelector("#joao");
 const olMaria = document.querySelector("#maria");
+
 document.entrada.addEventListener('submit', leFormulario);
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('buttonLimparLista').addEventListener('click', () => {
@@ -21,6 +23,7 @@ function leFormulario(event) {
     transacaoNoEstoque(origem, destino, fruta, quantidade);
     atualizaTela();
 }
+
 function preencheLista(lista, estoqueDaPessoa) {
     lista.textContent = "";
 
@@ -31,12 +34,19 @@ function preencheLista(lista, estoqueDaPessoa) {
         lista.appendChild(li);
     }
 }
+
 function atualizaTela() {
     const estoque = getEstoque();
     olJoao.innerHTML = "";
     olMaria.innerHTML = "";
     document.entrada.quantidade.value = 1;
     document.entrada.fruta.value = "maca";
-    preencheLista(olJoao, estoque.joao);
-    preencheLista(olMaria, estoque.maria);
+
+    if (estoque.joao && estoque.joao.length > 0) {
+        preencheLista(olJoao, estoque.joao);
+    }
+
+    if (estoque.maria && estoque.maria.length > 0) {
+        preencheLista(olMaria, estoque.maria);
+    }
 }
